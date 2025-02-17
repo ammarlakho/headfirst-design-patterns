@@ -22,16 +22,22 @@ public class RemoteLoader {
 
 		Command[] partyOn = { lightOn, stereoOn, tvOn, hottubOn};
 		Command[] partyOff = { lightOff, stereoOff, tvOff, hottubOff};
+
+		Command[] sadBoiHours = { lightOff, stereoOn, hottubOn};
+		Command[] lezzGooHours = { lightOn, tvOn, stereoOn};
   
 		MacroCommand partyOnMacro = new MacroCommand(partyOn);
 		MacroCommand partyOffMacro = new MacroCommand(partyOff);
+		MacroCommand sadBoiCommand = new MacroCommand(sadBoiHours);
+		MacroCommand lezzGooCommand = new MacroCommand(lezzGooHours);
  
 		remoteControl.setCommand(0, partyOnMacro, partyOffMacro);
+		remoteControl.setCommand(1, lezzGooCommand, sadBoiCommand);
   
 		System.out.println(remoteControl);
 		System.out.println("--- Pushing Macro On---");
-		remoteControl.onButtonWasPushed(0);
+		remoteControl.onButtonWasPushed(1);
 		System.out.println("--- Pushing Macro Off---");
-		remoteControl.offButtonWasPushed(0);
+		remoteControl.offButtonWasPushed(1);
 	}
 }
