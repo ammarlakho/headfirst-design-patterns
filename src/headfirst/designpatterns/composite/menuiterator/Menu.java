@@ -43,15 +43,33 @@ public class Menu extends MenuComponent {
 	}
  
  
-	public void print() {
-		System.out.print("\n" + getName());
+//	public void print() {
+//		System.out.print("\n" + getName());
+//		System.out.println(", " + getDescription());
+//		System.out.println("---------------------");
+//
+//		Iterator<MenuComponent> iterator = menuComponents.iterator();
+//		while (iterator.hasNext()) {
+//			MenuComponent menuComponent = iterator.next();
+//			menuComponent.print();
+//		}
+//	}
+
+	public void print(int level) {
+		String indentation = "";
+		for (int i=0; i<level; i++) {
+			indentation += "	";
+		}
+
+		System.out.print("\n" + indentation + getName());
 		System.out.println(", " + getDescription());
-		System.out.println("---------------------");
-  
+		System.out.println(indentation + "---------------------");
+
 		Iterator<MenuComponent> iterator = menuComponents.iterator();
 		while (iterator.hasNext()) {
 			MenuComponent menuComponent = iterator.next();
-			menuComponent.print();
+			menuComponent.print(level+1);
 		}
+
 	}
 }

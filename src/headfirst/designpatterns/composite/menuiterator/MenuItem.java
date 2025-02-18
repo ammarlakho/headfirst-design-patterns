@@ -40,13 +40,29 @@ public class MenuItem extends MenuComponent {
 		return new NullIterator();
 	}
  
-	public void print() {
-		System.out.print("  " + getName());
+//	public void print() {
+//		System.out.print("  " + getName());
+//		if (isVegetarian()) {
+//			System.out.print("(v)");
+//		}
+//		System.out.println(", " + getPrice());
+//		System.out.println("     -- " + getDescription());
+//	}
+
+	public void print(int level) {
+		String indentation = "";
+		for (int i=0; i<level; i++) {
+			indentation += "	";
+		}
+
+		indentation += ""; // Cause this is a leaf
+
+		System.out.print(indentation + getName());
 		if (isVegetarian()) {
 			System.out.print("(v)");
 		}
 		System.out.println(", " + getPrice());
-		System.out.println("     -- " + getDescription());
+		System.out.println(indentation + "  -- " + getDescription());
 	}
 
 }

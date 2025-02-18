@@ -30,6 +30,10 @@ public abstract class MenuComponent {
 	public abstract Iterator<MenuComponent> createIterator();
  
 	public void print() {
+		print(0);
+	}
+
+	public void print(int level) {
 		throw new UnsupportedOperationException();
 	}
 }
